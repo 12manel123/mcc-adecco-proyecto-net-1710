@@ -37,4 +37,29 @@ coche1.Model = "Ibiza";
 Vehicle coche2 = new Vehicle { Manufacturer = "Seat", Model = "Ibiza" };
 Vehicle coche3 = new Vehicle { Manufacturer = "Ford" };
 Vehicle coche4 = new Vehicle { Model = "Mondeo" };
-Vehicle coche5 = new Vehicle { Model = "Mondeo", Cc = 1.2 };
+Vehicle coche5 = new Vehicle { Model = "Mondeo", CubicCentimeters = 1.2 };
+
+//Arrancar vehiculo
+Console.WriteLine(coche1.Status);
+coche1.Start();
+Console.WriteLine(coche1.Status);
+coche1.Stop();
+Console.WriteLine(coche1.Status);
+coche1.Status = true;
+
+coche1.Acelerar(50);
+Console.WriteLine("Cantidad a acelerar:");
+coche1.Acelerar(Convert.ToInt32(Console.ReadLine()));
+Console.WriteLine(coche1.Speed);
+
+Console.WriteLine("Cantidad a frenar:");
+coche1.Reducir(Convert.ToInt32(Console.ReadLine()));
+Console.WriteLine(coche1.Speed);
+
+Console.Write("Cantidad a acelerar :");
+int velocidad = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Cantidad límite:");
+int limite = Convert.ToInt32(Console.ReadLine());
+
+coche1.Acelerar(velocidad,limite);
+Console.WriteLine(coche1.Speed);
