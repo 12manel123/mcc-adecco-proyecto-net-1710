@@ -63,3 +63,7 @@ int limite = Convert.ToInt32(Console.ReadLine());
 
 coche1.Acelerar(velocidad,limite);
 Console.WriteLine(coche1.Speed);
+
+Person persona1 = new Person();
+persona1.Saludar(Console.ReadLine());
+persona1.Saludar();
