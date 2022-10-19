@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace POO {
     public abstract class RoadVehicle {//con abstract no puedes crear objetos, pero los hijos si
         public string Manufacturer;
-            public int NumRuedas;
-            public bool Status;
+        public int NumRuedas;
+        public bool Status;
 
         public void Start() {
             Status = true;

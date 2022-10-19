@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Linq;
 using POO;
 
 Console.WriteLine("Progrmaa inicial!");
@@ -71,7 +72,7 @@ persona1.Saludar();
 SmartPhone movil1 = new SmartPhone { Manufacturer = "Samsung", Cores = 4, Ram = 8 };
 Console.WriteLine(movil1);
 SmartPhone movil2 = new SmartPhone { Manufacturer = "One plus", Cores = 8, Ram = 16 };
-Console.WriteLine(movil2);*/
+Console.WriteLine(movil2);
 
 Guest invitado = new Guest();
 invitado.Age = -20;
@@ -92,7 +93,6 @@ Address address1 = new Address {
     Street = "Calle 1",
     PostalCode = "434356",
     City = "Pepe",
-    Country = "Spain"
 };
 //asociacion entre clases
 Customer customer1 = new Customer {
@@ -172,3 +172,47 @@ Customer client2 = new Customer {
 
 //priny vehicles
 client2.PersonalVehicles.ForEach(v=>Console.Write(v));//Mostear en una linea un bucle de una lista
+*/
+
+
+// 1. Crear varios objetos Language
+Language language1 = new Language();
+language1.Name = "Spanish";
+language1.Dialects = 23;
+Language language2 = new Language(); 
+language2.Name = "English";
+language2.Dialects = 6;
+Language language3 = new Language();
+language3.Name = "Catalan";
+language3.Dialects = 4;
+
+// 2. Crear un objeto Country con varios Language
+var lenguages = new List<Language> {language1,language2};
+
+Country country1 = new Country();
+country1.Name = "España";
+country1.NameISO = "ES";
+country1.Corruption = true;
+country1.Invaded = false;
+country1.Languages = lenguages;
+
+// 3. Crear objeto Address con un Country
+Address adress1 = new Address {
+    Street = "Calle 1",
+    PostalCode = "434356",
+    City = "Pepe",
+    Country = country1
+    
+};
+
+// 4. Crear un objeto Customer con un Address
+Customer client1 = new Customer {
+    Dni = "23232323E",
+    Email="correo1@gmail.com",
+    Adress = adress1
+};
+
+// 5. A partir del objeto Customer imprimir qué lenguajes habla con un bucle for
+Console.WriteLine("Nombres que se hablan en " + client1.Adress.Country.Name + " son: ");
+for (int i = 0; i < client1.Adress.Country.Languages.Count; i++) 
+    Console.WriteLine(client1.Adress.Country.Languages[i].Name);
