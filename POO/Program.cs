@@ -2,7 +2,7 @@
 using POO;
 
 Console.WriteLine("Progrmaa inicial!");
-
+/*
 Employee empleado1 = new Employee("48484848E","Manelete",30,3000.5,true);
 Employee empleado2 = new Employee("25252525E", "Pepe", 40, 1500.5, false);
 
@@ -67,3 +67,52 @@ Console.WriteLine(coche1.Speed);
 Person persona1 = new Person();
 persona1.Saludar(Console.ReadLine());
 persona1.Saludar();
+
+SmartPhone movil1 = new SmartPhone { Manufacturer = "Samsung", Cores = 4, Ram = 8 };
+Console.WriteLine(movil1);
+SmartPhone movil2 = new SmartPhone { Manufacturer = "One plus", Cores = 8, Ram = 16 };
+Console.WriteLine(movil2);*/
+
+Guest invitado = new Guest();
+invitado.Age = -20;
+//invitado.age = 20;//no dejara aqui ya que es metodo private
+Console.WriteLine(invitado.Age);
+Console.WriteLine(invitado.Dni);
+//invitado.Dni = "2323233H";
+Console.WriteLine(invitado.Salary);
+invitado.Promote(200.0);
+Console.WriteLine(invitado.Salary);
+
+//Promote sobrecargado
+invitado.Promote();
+Console.WriteLine(invitado.Salary);
+
+
+Address address1 = new Address {
+    Street = "Calle 1",
+    PostalCode = "434356",
+    City = "Pepe",
+    Country = "Spain"
+};
+//asociacion entre clases
+Customer customer1 = new Customer {
+    Dni = "232323R",
+    Email = "cust1@company.com",
+    Adress = address1
+};
+
+Console.WriteLine(customer1.Adress.Street);
+
+
+Car car = new Car();
+car.Manufacturer = "Ford";//heredada
+car.NumRuedas = 4;//heredada
+car.NumPuertas = 3;//especifica de car
+car.RuedaRepuesto = false;//especifica de car
+car.Start();//heredado
+Console.WriteLine(car.RuedaRepuesto);
+MotorCycle moto = new MotorCycle();
+moto.Manufacturer = "Peugeot";
+moto.NumRuedas = 2;
+moto.Copilot = true;
+moto.Naked = false;
