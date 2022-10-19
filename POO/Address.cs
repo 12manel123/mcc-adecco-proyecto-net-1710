@@ -11,5 +11,6 @@ namespace POO {
         public string PostalCode;
         public string City;
         public string Country;
+        public Address() { }
     }
 }

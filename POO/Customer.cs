@@ -9,6 +9,8 @@ namespace POO {
         public string Dni;
         public string Email;
         public Address Adress;
+        public RoadVehicle Vehicle;//Polimorfismo
+        public List<RoadVehicle> PersonalVehicles;
 
         public Customer() {
 

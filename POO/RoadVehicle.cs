@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace POO {
-    public class RoadVehicle {
+    public abstract class RoadVehicle {//con abstract no puedes crear objetos, pero los hijos si
         public string Manufacturer;
             public int NumRuedas;
             public bool Status;
@@ -36,8 +36,8 @@ namespace POO {
         public bool Copilot;
         public bool Naked;
     }
-    public class Truck : RoadVehicle {//los ":" significa que hereda directamente, diciendo cual es el padre
-        public string Trailer;
+    public class Truck : RoadVehicle {
+        public bool Trailer;
         public int TrailerCapacity;
     }
     public class ElectricCar : Car {//los ":" significa que hereda directamente, diciendo cual es el padre

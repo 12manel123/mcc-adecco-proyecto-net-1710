@@ -119,6 +119,13 @@ moto.Copilot = true;
 moto.Naked = false;
 
 
+Truck truck = new Truck();
+truck.Manufacturer = "Peugeot";
+truck.NumRuedas = 2;
+truck.Trailer = true;
+truck.TrailerCapacity = 323;
+
+
 ElectricCar electric1 = new ElectricCar();
 electric1.Manufacturer = "Alfa";//heredada de roadvehicle
 electric1.NumRuedas = 4;//heredada de roadvehicle
@@ -136,3 +143,32 @@ Console.WriteLine(alfaRomeo.Status+" test "+alfaRomeo.NumPerson);
 
 alfaRomeo.Stop();
 Console.WriteLine(alfaRomeo.Status + " caca " + alfaRomeo.NumPerson);
+
+
+//poliformismo
+
+Customer client = new Customer {
+    Dni = "23232323E",
+    Vehicle = moto
+};
+client.Vehicle.Start();
+
+
+DoSomething(car);
+DoSomething(truck);
+void DoSomething(RoadVehicle vehicle) {
+    vehicle.Start();
+    vehicle.Stop();
+}
+var vehicles = new List<RoadVehicle> {//Pasar en una variable distintas clases
+    new MotorCycle{Copilot=true},
+    new ElectricCar{BateryCapacity=30000}
+};
+
+Customer client2 = new Customer {
+    Dni = "3232323W",
+    PersonalVehicles = vehicles//Polimorfismo
+};
+
+//priny vehicles
+client2.PersonalVehicles.ForEach(v=>Console.Write(v));//Mostear en una linea un bucle de una lista
