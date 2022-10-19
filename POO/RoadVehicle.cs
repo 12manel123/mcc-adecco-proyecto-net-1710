@@ -14,7 +14,7 @@ namespace POO {
             Status = true;
 
         }
-        public void Stop() {
+        public virtual void Stop() {//para evitar duplicados agregas el virtual y en el duplicado añades:
             Status = false;
         }
     }
@@ -23,6 +23,14 @@ namespace POO {
     public class Car : RoadVehicle {//los ":" significa que hereda directamente, diciendo cual es el padre
         public int NumPuertas;
         public bool RuedaRepuesto;
+        public int NumPassengers;
+        public int NumPerson;
+
+
+        public override void Stop() { 
+            base.Stop();//aca es el duplicado, añades esto para definir duplicado añadiendo algo mas
+            NumPerson = 0;
+        }
     }
     public class MotorCycle : RoadVehicle {//los ":" significa que hereda directamente, diciendo cual es el padre
         public bool Copilot;
@@ -32,4 +40,12 @@ namespace POO {
         public string Trailer;
         public int TrailerCapacity;
     }
+    public class ElectricCar : Car {//los ":" significa que hereda directamente, diciendo cual es el padre
+        public int BateryCapacity;
+    }
+    public class Combustion : Car {//los ":" significa que hereda directamente, diciendo cual es el padre
+        public int TanckCapacity;
+        public double Emission;
+    }
+
 }

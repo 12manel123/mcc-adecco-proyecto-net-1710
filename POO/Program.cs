@@ -107,6 +107,7 @@ Console.WriteLine(customer1.Adress.Street);
 Car car = new Car();
 car.Manufacturer = "Ford";//heredada
 car.NumRuedas = 4;//heredada
+car.NumPassengers = 5;//heredada de roadvehicle
 car.NumPuertas = 3;//especifica de car
 car.RuedaRepuesto = false;//especifica de car
 car.Start();//heredado
@@ -116,3 +117,22 @@ moto.Manufacturer = "Peugeot";
 moto.NumRuedas = 2;
 moto.Copilot = true;
 moto.Naked = false;
+
+
+ElectricCar electric1 = new ElectricCar();
+electric1.Manufacturer = "Alfa";//heredada de roadvehicle
+electric1.NumRuedas = 4;//heredada de roadvehicle
+electric1.NumPassengers = 5;//heredada de roadvehicle
+electric1.NumPuertas = 5;//heredada de car
+electric1.RuedaRepuesto = true;//heeredada de car
+electric1.BateryCapacity = 50000;//especifica
+electric1.Start();
+
+
+Car alfaRomeo = new Car();
+alfaRomeo.NumPerson = 3;
+alfaRomeo.Start();
+Console.WriteLine(alfaRomeo.Status+" test "+alfaRomeo.NumPerson);
+
+alfaRomeo.Stop();
+Console.WriteLine(alfaRomeo.Status + " caca " + alfaRomeo.NumPerson);
