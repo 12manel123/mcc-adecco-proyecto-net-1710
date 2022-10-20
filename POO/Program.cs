@@ -226,13 +226,13 @@ foreach (Language idioma in client1.Adress.Country.Languages) {
 //------------INTERFACES---------------
 ISaludo saludo1 = new SaludoFormal();
 Customer rodolfo = new Customer() {Saludo= saludo1};
-rodolfo.Saludo.saludar();
-rodolfo.Saludo.saludar("Alan");
+rodolfo.Saludo.Saludar();
+rodolfo.Saludo.Saludar("Alan");
 
 ISaludo saludo2 = new SaludoInformal();
 rodolfo.Saludo = saludo2;
-rodolfo.Saludo.saludar();
-rodolfo.Saludo.saludar("Alan");
+rodolfo.Saludo.Saludar();
+rodolfo.Saludo.Saludar("Alan");
 
 Customer mike = new Customer {Saludo=saludo2};
 
@@ -240,3 +240,9 @@ SaludoFormal s1 = new SaludoFormal();//No poliformismo
 SaludoInformal s2 = new SaludoInformal();//No polimorfismo
 //SaludoInformal s3 = new SaludoFormal();//No polimorfismo y malo
 
+
+IComputerRepository computerRepo = new ComputerListRepository();
+var computer2 = computerRepo.FindById(2);
+var computers = computerRepo.FindAll();
+
+Console.WriteLine(computers[2].Model +" test "+computers.Count+" test "+computer2.Model);

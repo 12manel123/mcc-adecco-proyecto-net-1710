@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace POO;
 public class SaludoInformal : ISaludo {//Clase para impelemtar una Interfaz llamada ISaludo
-    public void saludar() {
+    public void Saludar() {
         Console.WriteLine("Sup bro!");
 
     }
-    public void saludar(string nombre) {
+    public void Saludar(string nombre) {
         Console.WriteLine("Sup "+nombre+"!");
 
     }
