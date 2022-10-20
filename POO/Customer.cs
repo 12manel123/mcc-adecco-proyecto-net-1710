@@ -8,6 +8,7 @@ namespace POO {
     internal class Customer {
         public string Dni;
         public string Email;
+        public ISaludo Saludo;
         public Address Adress;
         public RoadVehicle Vehicle;//Polimorfismo
         public List<RoadVehicle> PersonalVehicles;

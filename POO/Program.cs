@@ -68,7 +68,7 @@ Console.WriteLine(coche1.Speed);
 Person persona1 = new Person();
 persona1.Saludar(Console.ReadLine());
 persona1.Saludar();
-
+*/
 SmartPhone movil1 = new SmartPhone { Manufacturer = "Samsung", Cores = 4, Ram = 8 };
 Console.WriteLine(movil1);
 SmartPhone movil2 = new SmartPhone { Manufacturer = "One plus", Cores = 8, Ram = 16 };
@@ -171,8 +171,9 @@ Customer client2 = new Customer {
 };
 
 //priny vehicles
-client2.PersonalVehicles.ForEach(v=>Console.Write(v));//Mostear en una linea un bucle de una lista
-*/
+/*client2.PersonalVehicles.ForEach(v=>Console.Write(v));//Mostear en una linea un bucle de una lista
+Console.WriteLine("Num vehiculos de client2: "+client2.PersonalVehicles.Count());*/
+
 
 
 // 1. Crear varios objetos Language
@@ -214,5 +215,28 @@ Customer client1 = new Customer {
 
 // 5. A partir del objeto Customer imprimir qué lenguajes habla con un bucle for
 Console.WriteLine("Nombres que se hablan en " + client1.Adress.Country.Name + " son: ");
-for (int i = 0; i < client1.Adress.Country.Languages.Count; i++) 
+for (int i = 0; i < client1.Adress.Country.Languages.Count; i++)
     Console.WriteLine(client1.Adress.Country.Languages[i].Name);
+
+//otra manera con foreach
+foreach (Language idioma in client1.Adress.Country.Languages) {
+    Console.WriteLine(idioma.Name);
+}
+
+//------------INTERFACES---------------
+ISaludo saludo1 = new SaludoFormal();
+Customer rodolfo = new Customer() {Saludo= saludo1};
+rodolfo.Saludo.saludar();
+rodolfo.Saludo.saludar("Alan");
+
+ISaludo saludo2 = new SaludoInformal();
+rodolfo.Saludo = saludo2;
+rodolfo.Saludo.saludar();
+rodolfo.Saludo.saludar("Alan");
+
+Customer mike = new Customer {Saludo=saludo2};
+
+SaludoFormal s1 = new SaludoFormal();//No poliformismo
+SaludoInformal s2 = new SaludoInformal();//No polimorfismo
+//SaludoInformal s3 = new SaludoFormal();//No polimorfismo y malo
+
