@@ -242,7 +242,54 @@ SaludoInformal s2 = new SaludoInformal();//No polimorfismo
 
 
 IComputerRepository computerRepo = new ComputerListRepository();
+
+
+Console.WriteLine("start");
 var computer2 = computerRepo.FindById(2);
 var computers = computerRepo.FindAll();
+Console.WriteLine(computers[2].Model + " test " + computers.Count + " test " + computer2.Model);
+var computers2 = computerRepo.FindByRam(4,64);
+var computers3 = computerRepo.FindByRam(2, 64);
+var computer4 = computerRepo.FindByModel("Msi");
 
-Console.WriteLine(computers[2].Model +" test "+computers.Count+" test "+computer2.Model);
+
+Computer computer5 = new Computer { Id = 5, Model = "DELL", Ram = 6 };
+if (computerRepo.Save(computer5)) { Console.WriteLine("Ordenador "+ computer5.Model+" creado"); }
+else { Console.WriteLine("Ordenador ya existente o registrado"); }
+Console.WriteLine(computerRepo.ComputersLength());
+
+var num = 1;
+Console.WriteLine(num++);
+Console.WriteLine(num);
+num = 1;
+Console.WriteLine(++num);
+Console.WriteLine(num);
+
+if (computerRepo.Save(computer2)) { Console.WriteLine("Ordenador " + computer5.Model + " creado"); }
+else { Console.WriteLine("Ordenador ya existente o registrado"); }
+
+Console.WriteLine("//////////////////SAVE ALL CASE 1///////////////////");
+
+Computer pcA = new Computer { Id = 6, Model = "HP 23", Ram = 8 };
+Computer pcB = new Computer { Id = 7, Model = "Asus 23", Ram = 16 };
+Computer pcC = new Computer { Id = 8, Model = "Corsair 23", Ram = 32 };
+
+var pcs = new List<Computer> { pcA, pcB,pcC };
+
+int saveNum = computerRepo.SaveAll(pcs);
+if (saveNum == 3) Console.WriteLine("Creados los 3 nuevos");
+
+
+Console.WriteLine("//////////////////SAVE ALL CASE 2///////////////////");
+//caso 2: itentar 5 ordenadores, 2 nuevos y 3 que ya existen, devolver 2
+Computer pc1 = new Computer { Id = 1, Model = "HP 23", Ram = 8 };
+Computer pc2 = new Computer { Id = 2, Model = "Asus 23", Ram = 16 };
+Computer pc3 = new Computer { Id = 3, Model = "Corsair 23", Ram = 32 };
+Computer pc4 = new Computer { Id = 9, Model = "Lenovo A0", Ram = 32 };
+Computer pc5 = new Computer { Id = 10, Model = "Mac 233", Ram = 32 };
+pcs = new List<Computer> { pc1, pc2, pc3,pc4,pc5 };
+saveNum = computerRepo.SaveAll(pcs);
+Console.WriteLine("Se han creado "+saveNum);
+
+Console.WriteLine("//////////////////Print ALL//////////////////");
+computerRepo.PrintAll();

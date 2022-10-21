@@ -21,13 +21,20 @@ internal interface IComputerRepository {
     //recuperar por Ram
     List<Computer> FindByRam(int min, int max);
 
-    //buscar por Ram
-
     //buscar por Model
 
-    //guardar
+    Computer FindByModel(string model);
 
-    //modificar
+
+    //guardar
+    bool Save(Computer computer);
+    //recuperar num ordenadores
+    int ComputersLength();
+    //guardar varios
+    int SaveAll(List<Computer> computersToAdd);
+
+    //imprimir por consola los ordenadres de la lista
+    void PrintAll();
 
     //borrar
 
@@ -35,7 +42,7 @@ internal interface IComputerRepository {
 
     //borrar por ids
 
-
+    //añador cosas de precios(ideas)
 
 }
 
