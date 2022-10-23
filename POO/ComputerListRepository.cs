@@ -111,5 +111,9 @@ internal class ComputerListRepository : IComputerRepository {
             Console.WriteLine(computer);
     }
 
+
+    public void RemoveComputer(Computer computer) {
+        computers.Remove(computer);
+    }
 }
 

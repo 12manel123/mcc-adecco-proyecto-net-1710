@@ -37,6 +37,7 @@ internal interface IComputerRepository {
     void PrintAll();
 
     //borrar
+    void RemoveComputer(Computer computer);
 
     //borrar todos de la lista
 
@@ -44,5 +45,5 @@ internal interface IComputerRepository {
 
     //añador cosas de precios(ideas)
 
-}
+    }
 

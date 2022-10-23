@@ -293,3 +293,6 @@ Console.WriteLine("Se han creado "+saveNum);
 
 Console.WriteLine("//////////////////Print ALL//////////////////");
 computerRepo.PrintAll();
+Console.WriteLine("//////////////////Borrar PC//////////////////");
+computerRepo.RemoveComputer(computerRepo.FindById(2));
+computerRepo.PrintAll();
