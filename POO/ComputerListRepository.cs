@@ -155,11 +155,21 @@ internal class ComputerListRepository : IComputerRepository {
     }
 
     public bool RemoveComputerById(int id) {
-        if (!ExistsById(id)) {
-            computers.Remove(FindById(id));
-            return true;
+        if (ExistsById(id)) {
+            for (int i = 0; i < computers.Count; i++) {
+
+                if (computers[i].Id == id) {
+                    computers.RemoveAt(i);
+                    // computers.Remove(FindById(id));
+                    return true;
+                }
+            }
+            return false;
         }
         return false;
+        /*
+        computers.Remove(FindById(id));//Impemetaa removeAt despues*/
+
     }
     public int RemoveComputerByIds(List<int>ids) {
         int i = 0;
@@ -188,8 +198,6 @@ internal class ComputerListRepository : IComputerRepository {
             } 
         }
         return max;
-
-
     }
 
 }

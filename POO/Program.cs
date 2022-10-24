@@ -299,6 +299,13 @@ var pcupdate = new Computer { Id = 1, Model = "HCP 23", Ram = 8 };
 computerRepo.Update(pcupdate);
 computerRepo.PrintAll();
 
+Console.WriteLine("//////////////////Borrar x IDs//////////////////");
+var ids = new List<int> { 1, 2, 3, 8, 99 };
+int deletedNum = computerRepo.RemoveComputerByIds(ids);
+Console.WriteLine("Se borraron: " + deletedNum);
+computerRepo.PrintAll();
+
+
 Console.WriteLine("//////////////////Borrar PC//////////////////");
 computerRepo.RemoveComputer(computerRepo.FindById(2));
 computerRepo.PrintAll();
@@ -312,6 +319,11 @@ Console.WriteLine(computerRepo.CalculateMediumRam());
 
 Console.WriteLine("//////////////////Calcular max Ram//////////////////");
 Console.WriteLine(computerRepo.CalculateMaxRam());
+
+
+
+
+
 
 Console.WriteLine("//////////////////Borrar ALL PCs//////////////////");
 computerRepo.RemoveAllComputers();
