@@ -321,6 +321,8 @@ Console.WriteLine("//////////////////Calcular max Ram//////////////////");
 Console.WriteLine(computerRepo.CalculateMaxRam());
 
 
+Console.WriteLine("//////////////////Calcular min Ram//////////////////");
+Console.WriteLine(computerRepo.CalculateMinRam());
 
 
 

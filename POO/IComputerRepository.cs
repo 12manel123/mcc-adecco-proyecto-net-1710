@@ -61,6 +61,9 @@ internal interface IComputerRepository {
     //ram maxima
     int CalculateMaxRam();
 
+    //ram minima
+
+    int CalculateMinRam();
 
 }
 
