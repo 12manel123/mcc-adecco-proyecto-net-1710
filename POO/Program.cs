@@ -293,6 +293,12 @@ Console.WriteLine("Se han creado "+saveNum);
 
 Console.WriteLine("//////////////////Print ALL//////////////////");
 computerRepo.PrintAll();
+
+Console.WriteLine("//////////////////Actaulizar PC//////////////////");
+var pcupdate = new Computer { Id = 1, Model = "HCP 23", Ram = 8 };
+computerRepo.Update(pcupdate);
+computerRepo.PrintAll();
+
 Console.WriteLine("//////////////////Borrar PC//////////////////");
 computerRepo.RemoveComputer(computerRepo.FindById(2));
 computerRepo.PrintAll();
@@ -301,6 +307,12 @@ Console.WriteLine("//////////////////Borrar PC by ID//////////////////");
 computerRepo.RemoveComputerById(1);
 computerRepo.PrintAll();
 
+Console.WriteLine("//////////////////Calcular media Ram//////////////////");
+Console.WriteLine(computerRepo.CalculateMediumRam());
+
+Console.WriteLine("//////////////////Calcular max Ram//////////////////");
+Console.WriteLine(computerRepo.CalculateMaxRam());
+
 Console.WriteLine("//////////////////Borrar ALL PCs//////////////////");
-computerRepo.RemoveAllComputer();
+computerRepo.RemoveAllComputers();
 computerRepo.PrintAll();

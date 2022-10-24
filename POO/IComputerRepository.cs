@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,13 +43,24 @@ internal interface IComputerRepository {
 
     //borrar todos de la lista
 
-    void RemoveAllComputer();
+    void RemoveAllComputers();
 
+    //borrar por id
+
+    bool RemoveComputerById(int id);
     //borrar por ids
 
-    void RemoveComputerById(int id);
+    int RemoveComputerByIds(List<int>ids);
 
-    //añador cosas de precios(ideas)
+
+    //modificar un computer
+    bool Update(Computer computer);
+    //calcular ram media
+    int CalculateMediumRam();
+
+    //ram maxima
+    int CalculateMaxRam();
+
 
 }
 

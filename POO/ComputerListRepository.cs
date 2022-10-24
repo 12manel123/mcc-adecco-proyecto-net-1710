@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -112,19 +113,84 @@ internal class ComputerListRepository : IComputerRepository {
     }
 
 
+    public bool Update(Computer computer) {
+
+        if(ExistsById(computer.Id)) {
+            for (int i=0; i<computers.Count; i++) {
+                if (computers[i].Id == computer.Id) {
+                    computers[i].Model = computer.Model;
+                    computers[i].Ram = computer.Ram;
+                    Console.WriteLine("Update successful with id: "+computer.Id);
+                    return true;
+                }
+            }
+            return false;
+        }
+        else {
+            Console.WriteLine("Computer not found");
+            return false;
+        }
+
+
+    }
+
+
     public void RemoveComputer(Computer computer) {
         computers.Remove(computer);
     }
-    public void RemoveAllComputer(){
-        for (int i = 1; i < computers.Count; i++) {
-            Console.WriteLine(i+" test");
-            computers.RemoveAt(i-1);
+    public void RemoveAllComputers() {
+        if (computers.Any()) {
+            computers.Clear();
+            Console.WriteLine("Deleted all completed");
+
         }
-        
+
+        /*foreach (Computer computer in computers)
+            computers.Remove(computer);*/
+
+
+        //computers.Remove(computer);
+
+
     }
 
-    public void RemoveComputerById(int id) {
-        computers.Remove(FindById(id));
+    public bool RemoveComputerById(int id) {
+        if (!ExistsById(id)) {
+            computers.Remove(FindById(id));
+            return true;
+        }
+        return false;
     }
+    public int RemoveComputerByIds(List<int>ids) {
+        int i = 0;
+        foreach (int id in ids) {
+            bool deleted = RemoveComputerById(id);
+            if (deleted) i++;
+        }
+        return i;
+
+    }
+
+    public int CalculateMediumRam() {
+        int media = 0;
+        foreach (Computer computer in computers) {
+            media+=computer.Ram;
+        }
+        return media / computers.Count;
+
+
+    }
+    public int CalculateMaxRam() {
+        int max = 0;
+        foreach (Computer computer in computers) {
+            if (max <= computer.Ram) {
+                max = computer.Ram; 
+            } 
+        }
+        return max;
+
+
+    }
+
 }
 
