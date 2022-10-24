@@ -74,7 +74,15 @@ internal class ComputerListRepository : IComputerRepository {
     public bool Save(Computer computer) {
             if (ExistsById(computer.Id) != true) {
                 new Computer { Id = computer.Id, Model = computer.Model, Ram = computer.Ram };
+                ComputerValidator validator = new ComputerValidator();
+            if (validator.Validate(computer)) {
                 computers.Add(computer);//añadi esto para poder agregarlo
+                Console.WriteLine("Creado correctamente");
+            }
+            else {
+                Console.WriteLine("Validación erronea");
+                return false;
+            }
                 return true;
             }
             else { return false; }
