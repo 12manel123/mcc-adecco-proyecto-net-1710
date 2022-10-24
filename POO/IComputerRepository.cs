@@ -41,9 +41,13 @@ internal interface IComputerRepository {
 
     //borrar todos de la lista
 
+    void RemoveAllComputer();
+
     //borrar por ids
+
+    void RemoveComputerById(int id);
 
     //añador cosas de precios(ideas)
 
-    }
+}
 

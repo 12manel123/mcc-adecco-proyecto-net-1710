@@ -115,5 +115,16 @@ internal class ComputerListRepository : IComputerRepository {
     public void RemoveComputer(Computer computer) {
         computers.Remove(computer);
     }
+    public void RemoveAllComputer(){
+        for (int i = 1; i < computers.Count; i++) {
+            Console.WriteLine(i+" test");
+            computers.RemoveAt(i-1);
+        }
+        
+    }
+
+    public void RemoveComputerById(int id) {
+        computers.Remove(FindById(id));
+    }
 }
 

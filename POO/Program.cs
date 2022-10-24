@@ -296,3 +296,11 @@ computerRepo.PrintAll();
 Console.WriteLine("//////////////////Borrar PC//////////////////");
 computerRepo.RemoveComputer(computerRepo.FindById(2));
 computerRepo.PrintAll();
+
+Console.WriteLine("//////////////////Borrar PC by ID//////////////////");
+computerRepo.RemoveComputerById(1);
+computerRepo.PrintAll();
+
+Console.WriteLine("//////////////////Borrar ALL PCs//////////////////");
+computerRepo.RemoveAllComputer();
+computerRepo.PrintAll();
