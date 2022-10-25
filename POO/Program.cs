@@ -329,4 +329,5 @@ Console.WriteLine(computerRepo.CalculateMinRam());
 
 Console.WriteLine("//////////////////Borrar ALL PCs//////////////////");
 computerRepo.RemoveAllComputers();
+Console.WriteLine(computerRepo.CalculateMinRam());
 computerRepo.PrintAll();

@@ -208,10 +208,19 @@ internal class ComputerListRepository : IComputerRepository {
         return max;
     }
     public int CalculateMinRam() {
+        /*
         int min = computers[0].Ram;
         foreach (Computer computer in computers) {
         
             if (min >= computer.Ram) {
+                min = computer.Ram;
+            }
+        }
+        return min;*/
+        int min =0;
+        foreach (Computer computer in computers) {
+
+            if (min ==0||min>=computer.Ram) {
                 min = computer.Ram;
             }
         }
