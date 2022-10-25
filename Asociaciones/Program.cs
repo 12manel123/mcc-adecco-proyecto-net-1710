@@ -1,4 +1,5 @@
-﻿using Asociaciones.ManyToOne;
+﻿using Asociaciones.ManyToMany;
+using Asociaciones.ManyToOne;
 using Asociaciones.OneToOne;
 
 Console.WriteLine("///////////////// OneToOne /////////////////////");
@@ -28,3 +29,14 @@ author.Books.AddRange(new List<Book> { book1, book2, book3 });
 
 Console.WriteLine(author.Books[1]);
 Console.WriteLine(book1);
+
+
+Console.WriteLine("///////////////// ManyToMany /////////////////////");
+
+Category category1 = new Category { Id = 1, Name = "Comedy", Color = "Yellow" };
+Category category2 = new Category { Id = 2, Name = "Romantic", Color = "Red" };
+Category category3 = new Category { Id = 3, Name = "Terror", Color = "Gray" };
+
+Film film1 = new Film { Id = 1, Title = "IT", Duration = 120};
+Film film2 = new Film { Id = 2, Title = "Señor de los Anillos", Duration = 170 };
+
